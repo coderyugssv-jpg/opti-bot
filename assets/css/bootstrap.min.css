@@ -850,12 +850,15 @@ progress {
     --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
-  
     margin-top: calc(-1 * var(--bs-gutter-y));
     margin-right: calc(-.5 * var(--bs-gutter-x));
     margin-left: calc(-.5 * var(--bs-gutter-x))
 }
-
+@media(min-width:1200px){
+    .row {
+        width:1600px;
+    }
+}
 .row>* {
     flex-shrink: 0;
     width: 100%;
