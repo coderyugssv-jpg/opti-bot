@@ -461,6 +461,14 @@ form.addEventListener('submit', async (e) => {
                     <div class="col-xl-6 col-lg-5 col-md-6 ps-lg-5 wow fadeInUp" data-wow-delay=".8s">
                         <div class="single-footer-widget">
                             <div class="newsletter-content">
+                                <form
+id="emailForm"
+class="latest-input wow fadeInUp"
+data-wow-delay=".3s"
+action="https://script.google.com/macros/s/AKfycbxriW2ORY0bUS2GMwEfCEdTDvwUpssRI_FVeiU21bPIBhUJH9nqXAhdlc5SIFkib6W4/exec"
+method="POST"
+>
+
                                 <h3>Subscribe to Our Newsletter</h3>
                                 <p>
                                     Stay updated with Optibot’s latest AI innovations, insights, and exclusive offers. No spam — just value.
@@ -471,7 +479,50 @@ form.addEventListener('submit', async (e) => {
                                         <i class="fa-sharp fa-regular fa-arrow-up-right"></i>
                                     </button>
                                 </div>
+                            </form>
+
+<!-- Message div -->
+<div id="emailMessage" style="margin-top: 10px; font-size: 16px;"></div>
+
+<script>
+const emailForm = document.getElementById('emailForm');
+const messageDiv2 = document.getElementById('emailMessage');
+
+emailForm.addEventListener('submit', async (e) => {
+e.preventDefault(); // STOP the page from reloading
+
+const submitBtn = emailForm.querySelector('button[type="submit"]');
+submitBtn.disabled = true; // prevent double clicks
+
+const formData = new FormData(emailForm);
+const actionURL = "https://script.google.com/macros/s/AKfycbxriW2ORY0bUS2GMwEfCEdTDvwUpssRI_FVeiU21bPIBhUJH9nqXAhdlc5SIFkib6W4/exec";
+
+try {
+const response = await fetch(actionURL, {
+ method: "POST",
+ body: formData
+});
+
+const result = await response.json();
+if(result.status === "success") {
+ messageDiv2.textContent = "Subscription successful!";
+ messageDiv2.style.color = "green";
+ emailForm.reset();
+} else {
+ messageDiv2.textContent = "Something went wrong. Try again.";
+ messageDiv2.style.color = "red";
+}
+} catch (error) {
+messageDiv2.textContent = "Error submitting form. Try again.";
+messageDiv2.style.color = "red";
+} finally {
+submitBtn.disabled = false;
+}
+});
+</script>
+
                             </div>
+                       
                         </div>
                     </div>
                 </div>
