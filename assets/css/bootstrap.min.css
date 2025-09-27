@@ -856,7 +856,7 @@ progress {
 }
 @media(min-width:1200px){
     .row {
-        width:1600px;
+        width: 1600px;
     }
 }
 .row>* {
