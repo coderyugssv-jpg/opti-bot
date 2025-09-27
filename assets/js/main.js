@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------
 
-Template Name: AIForge - AI Startup & Technology HTML Template 
+Template Name: OptiBot - AI Startup & Technology HTML Template 
 Author:  namespace-it
 Author URI: https://themeforest.net/user/namespace-itportfolio
 Version: 1.0.0
-Description: AIForge - AI Startup & Technology HTML Template <
+Description: OptiBot - AI Startup & Technology HTML Template <
 
 -------------------------------------------------------------------
 CSS TABLE OF CONTENTS
